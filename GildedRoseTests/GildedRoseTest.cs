@@ -73,4 +73,17 @@ public class GildedRoseTest
         Assert.Equal(sellInexpected, Items[0].SellIn);
         Assert.Equal(qualityExpected, Items[0].Quality);
     }
+
+    [Theory]
+    [InlineData(Constants.CheeseCake, 20, 8, 19, 4)]
+    [InlineData(Constants.CheeseCake, 0, 10, -1, 0)]
+    public void CheeseCake_Quality4XDegrade(string itemName, int sellIn, int quality, int sellInexpected, int qualityExpected)
+    {
+        IList<Item> Items = [new CheeseCake(itemName, sellIn, quality)];
+        GildedRose app = new(Items);
+        app.UpdateQuality();
+        Assert.Equal(itemName, Items[0].Name);
+        Assert.Equal(sellInexpected, Items[0].SellIn);
+        Assert.Equal(qualityExpected, Items[0].Quality);
+    }
 }

@@ -19,7 +19,8 @@ public class Program
             new BackstagePass("Backstage passes to a TAFKAL80ETC concert",5,20),
             new BackstagePass("Backstage passes to a TAFKAL80ETC concert",10,49),
             new BackstagePass("Backstage passes to a TAFKAL80ETC concert",5,9),
-            new ConjuredCake("Conjured Mana Cake", 3,  6)
+            new ConjuredCake("Conjured Mana Cake", 3,  6),
+            new CheeseCake("Cheese Cake", 5, 7)
         };
 
         var app = new GildedRose(items);
