@@ -1,5 +1,6 @@
-# Gilded Rose starting position in C# xUnit
-
+# Gilded Rose Refactoring C# xUnit
+## This is a refactored solution for the famous Gilded Rose Refactoring Kata.
+Original Kata is here https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main/csharp.xUnit
 ## Build the project
 
 Use your normal build tools to build the projects in Debug mode.
