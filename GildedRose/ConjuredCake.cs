@@ -2,11 +2,8 @@
 
 namespace GildedRoseKata
 {
-    public class ConjuredCake : Item, IUpdateableItem
+    public class ConjuredCake : AbstractItem
     {
-        public int QualityFactor { get; private set; }
-        public int SellInFactor { get; set; } = 1;
-
         public ConjuredCake(string Name, int SellIn, int Quality)
         {
             this.Name = Name;
@@ -14,7 +11,7 @@ namespace GildedRoseKata
             this.Quality = Quality;
         }
 
-        public void UpdateItem()
+        public override void UpdateItem()
         {
             ProcessSellInDate();
             ProcessQuality();
