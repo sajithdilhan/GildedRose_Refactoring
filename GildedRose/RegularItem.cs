@@ -2,13 +2,8 @@
 
 namespace GildedRoseKata;
 
-public class RegularItem : Item, IUpdateableItem
+public class RegularItem : AbstractItem
 {
-    public bool IsNonDegradable { get; set; } = false;
-    public int QualityFactor { get; private set; }
-    public bool IsIncrementingFactor { get; private set; } = false;
-    public int SellInFactor { get; set; } = 1;
-
     public RegularItem(string Name, int SellIn, int Quality)
     {
         this.Name = Name;
@@ -16,7 +11,7 @@ public class RegularItem : Item, IUpdateableItem
         this.Quality = Quality;
     }
 
-    public void UpdateItem()
+    public override void UpdateItem()
     {
         ProcessSellInDate();
         ProcessQuality();

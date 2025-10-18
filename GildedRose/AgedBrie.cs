@@ -2,10 +2,8 @@
 
 namespace GildedRoseKata
 {
-    public class AgedBrie : Item, IUpdateableItem
+    public class AgedBrie : AbstractItem, IUpdateableItem
     {
-        public int QualityFactor { get; private set; }
-        public int SellInFactor { get; set; } = 1;
         public AgedBrie(string Name, int SellIn, int Quality)
         {
             this.Name = Name;
@@ -13,9 +11,8 @@ namespace GildedRoseKata
             this.Quality = Quality;
         }
 
-        public void UpdateItem()
+        public override void UpdateItem()
         {
-            QualityFactor = 1;
             ProcessSellInDate();
             ProcessQuality();
         }
@@ -28,6 +25,7 @@ namespace GildedRoseKata
         private void ProcessSellInDate()
         {
             SellIn -= SellInFactor;
+            QualityFactor = 1;
         }
     }
 }

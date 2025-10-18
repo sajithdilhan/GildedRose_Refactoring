@@ -12,8 +12,8 @@ public class GildedRoseTest
     [InlineData("Elixir of the Mongoose", 1, 5, 0, 3)]
     public void NormalItem_DegradeQuality(string itemName, int sellIn, int quality, int sellInexpected, int qualityExpected)
     {
-        IList<Item> Items = [new RegularItem (itemName, sellIn, quality)];
-        GildedRose app = new GildedRose(Items);
+        IList<Item> Items = [new RegularItem(itemName, sellIn, quality)];
+        GildedRose app = new(Items);
         app.UpdateQuality();
         Assert.Equal(itemName, Items[0].Name);
         Assert.Equal(expected: sellInexpected, Items[0].SellIn);
@@ -39,7 +39,7 @@ public class GildedRoseTest
     public void Sulfuras_Quality_DoesNotChange(string itemName, int sellIn, int quality, int sellInexpected, int qualityExpected)
     {
         IList<Item> Items = [new Sulfuras(itemName, sellIn, quality)];
-        GildedRose app = new GildedRose(Items);
+        GildedRose app = new(Items);
         app.UpdateQuality();
         Assert.Equal(itemName, Items[0].Name);
         Assert.Equal(sellInexpected, Items[0].SellIn);
@@ -53,8 +53,8 @@ public class GildedRoseTest
     [InlineData(Constants.BackstagePasses, 0, 5, -1, 0)]
     public void Backstage_Returns_Expected(string itemName, int sellIn, int quality, int sellInexpected, int qualityExpected)
     {
-        IList<Item> Items = [new BackstagePass(itemName, sellIn, quality ) ];
-        GildedRose app = new GildedRose(Items);
+        IList<Item> Items = [new BackstagePass(itemName, sellIn, quality)];
+        GildedRose app = new(Items);
         app.UpdateQuality();
         Assert.Equal(itemName, Items[0].Name);
         Assert.Equal(sellInexpected, Items[0].SellIn);
