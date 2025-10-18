@@ -2,9 +2,9 @@
 
 namespace GildedRoseKata
 {
-    public class ConjuredCake : AbstractItem
+    public class CheeseCake : AbstractItem
     {
-        public ConjuredCake(string Name, int SellIn, int Quality)
+        public CheeseCake(string Name, int SellIn, int Quality)
         {
             this.Name = Name;
             this.SellIn = SellIn;
@@ -19,6 +19,11 @@ namespace GildedRoseKata
 
         private void ProcessQuality()
         {
+            if (SellIn < 0)
+            {
+                Quality = 0;
+                return;
+            }
             Quality -= QualityFactor;
             Quality = Math.Clamp(Quality, 0, 50);
         }
@@ -28,8 +33,8 @@ namespace GildedRoseKata
             SellIn -= SellInFactor;
             QualityFactor = SellIn switch
             {
-                <= 0 => 4,
-                _ => 2,
+                <= 0 => 0,
+                _ => 4,
             };
         }
     }
