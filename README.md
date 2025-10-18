@@ -1,1 +1,1 @@
-# NewRepo
+# Gilded Rose Refactoring Kata
